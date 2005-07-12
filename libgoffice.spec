@@ -32,22 +32,29 @@ GOffice - Zestaw zorientowanych dokumentowo obiektów i narzêdzi
 Glib/Gtk+.
 
 %package devel
-Summary:	Development libraries and header files for GOffice library
+Summary:	Header files for GOffice library
+Summary(pl):	Pliki nag³ówkowe biblioteki GOffice
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	libgsf-gnome-devel >= 1.12.1
 
 %description devel
-This is the package containing the development libaries and header
-files for GOffice.
+This is the package containing the header files for GOffice.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe GOffice.
 
 %package static
 Summary:	Static GOffice library
+Summary(pl):	Statyczna biblioteka GOffice
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static GOffice library.
+
+%description static -l pl
+Statyczna biblioteka GOffice.
 
 %prep
 %setup -qn %{orgname}-%{version}
@@ -81,16 +88,16 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{orgname}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
-%{_datadir}/%{orgname}
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_libdir}/goffice
-%{_libdir}/lib*.so.*.*.*
+%{_datadir}/%{orgname}
 %{_pixmapsdir}/goffice
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/libgoffice-1
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_libdir}/lib*.so
+%{_includedir}/libgoffice-1
 %{_pkgconfigdir}/*.pc
 
 %files static
