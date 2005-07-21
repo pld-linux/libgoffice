@@ -77,6 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la}
+
 %find_lang %{orgname}
 
 %clean
@@ -89,7 +91,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%{_libdir}/goffice
+%dir %{_libdir}/goffice
+%attr(755,root,root) %{_libdir}/goffice/%{version}/plugins/*/*.so
+%{_libdir}/goffice/%{version}/plugins/*/*.glade
+%{_libdir}/goffice/%{version}/plugins/*/*.xml
 %{_datadir}/%{orgname}
 %{_pixmapsdir}/goffice
 
