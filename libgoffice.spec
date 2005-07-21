@@ -92,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_libdir}/goffice
+%dir %{_libdir}/goffice/%{version}
+%dir %{_libdir}/goffice/%{version}/plugins
+%dir %{_libdir}/goffice/%{version}/plugins/*
 %attr(755,root,root) %{_libdir}/goffice/%{version}/plugins/*/*.so
 %{_libdir}/goffice/%{version}/plugins/*/*.glade
 %{_libdir}/goffice/%{version}/plugins/*/*.xml
