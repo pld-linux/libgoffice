@@ -2,13 +2,13 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl):	Zestaw zorientowanych dokumentowo obiektów i narzêdzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.0.3
+Version:	0.0.4
 Release:	1
 Epoch:		0
 License:	GPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.0/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	36a58cabc3e860d5e525d904c461a7bc
+# Source0-md5:	f74b476c5129d362f08264fcdcf05010
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -17,11 +17,11 @@ BuildRequires:	intltool >= 0.27.2
 BuildRequires:	libart_lgpl >= 2.3.11
 BuildRequires:	libgnomeprint-devel >= 2.8.2
 BuildRequires:	libgnomeui-devel
-BuildRequires:	libgsf-gnome-devel >= 1.12.2
+BuildRequires:	libgsf-gnome-devel >= 1.12.3
 BuildRequires:	libtool 
 BuildRequires:	libxml2-devel >= 2.4.12
 BuildRequires:	pkgconfig
-Requires:	libgsf-gnome >= 1.12.2
+Requires:	libgsf-gnome >= 1.12.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +36,7 @@ Summary:	Header files for GOffice library
 Summary(pl):	Pliki nag³ówkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libgsf-gnome-devel >= 1.12.1
+Requires:	libgsf-gnome-devel >= 1.12.3
 
 %description devel
 This is the package containing the header files for GOffice.
