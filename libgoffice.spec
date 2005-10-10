@@ -2,13 +2,13 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl):	Zestaw zorientowanych dokumentowo obiektów i narzêdzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.0.4
+Version:	0.1.0
 Release:	1
 Epoch:		0
 License:	GPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.0/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	f74b476c5129d362f08264fcdcf05010
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.1/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	4f7b6c97bc745d4644072d86d5b90216
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -17,11 +17,11 @@ BuildRequires:	intltool >= 0.27.2
 BuildRequires:	libart_lgpl >= 2.3.11
 BuildRequires:	libgnomeprint-devel >= 2.8.2
 BuildRequires:	libgnomeui-devel
-BuildRequires:	libgsf-gnome-devel >= 1.12.3
+BuildRequires:	libgsf-gnome-devel >= 1.13.2
 BuildRequires:	libtool 
 BuildRequires:	libxml2-devel >= 2.4.12
 BuildRequires:	pkgconfig
-Requires:	libgsf-gnome >= 1.12.3
+Requires:	libgsf-gnome >= 1.13.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
