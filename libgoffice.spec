@@ -3,7 +3,7 @@ Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl):	Zestaw zorientowanych dokumentowo obiektów i narzêdzi Glib/Gtk+
 Name:		libgoffice
 Version:	0.3.0
-Release:	1
+Release:	2
 Epoch:		0
 License:	GPL v2
 Group:		Libraries
