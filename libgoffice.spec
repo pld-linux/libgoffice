@@ -3,7 +3,7 @@ Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl):	Zestaw zorientowanych dokumentowo obiektów i narzêdzi Glib/Gtk+
 Name:		libgoffice
 Version:	0.3.0
-Release:	2
+Release:	3
 Epoch:		0
 License:	GPL v2
 Group:		Libraries
@@ -12,15 +12,15 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.3/%{orgname}-%{version
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2 >= 2:2.9.2
+BuildRequires:	gtk+2 >= 2:2.10.0
 BuildRequires:	gtk-doc
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libart_lgpl >= 2.3.11
-BuildRequires:	libgnomeprint-devel >= 2.12.0
-BuildRequires:	libgnomeui-devel >= 2.15.1
+BuildRequires:	libgnomeprint-devel >= 2.12.1
+BuildRequires:	libgnomeui-devel >= 2.15.2
 BuildRequires:	libgsf-gnome-devel >= 1.14.1
 BuildRequires:	libtool 
-BuildRequires:	libxml2-devel >= 2.6.26
+BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 Requires:	libgsf-gnome >= 1.14.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,6 +67,7 @@ Statyczna biblioteka GOffice.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--enable-static \
 	--with-gnome \
