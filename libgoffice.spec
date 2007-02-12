@@ -1,6 +1,6 @@
 %define		orgname	goffice
 Summary:	Glib/Gtk+ set of document centric objects and utilities
-Summary(pl):	Zestaw zorientowanych dokumentowo obiekt體 i narz阣zi Glib/Gtk+
+Summary(pl.UTF-8):   Zestaw zorientowanych dokumentowo obiekt贸w i narz臋dzi Glib/Gtk+
 Name:		libgoffice
 Version:	0.3.1
 Release:	1
@@ -29,13 +29,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GOffice - a Glib/Gtk+ set of document centric objects and utilities.
 
-%description -l pl
-GOffice - Zestaw zorientowanych dokumentowo obiekt體 i narz阣zi
+%description -l pl.UTF-8
+GOffice - Zestaw zorientowanych dokumentowo obiekt贸w i narz臋dzi
 Glib/Gtk+.
 
 %package devel
 Summary:	Header files for GOffice library
-Summary(pl):	Pliki nag丑wkowe biblioteki GOffice
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libgsf-gnome-devel >= 1.14.2
@@ -43,19 +43,19 @@ Requires:	libgsf-gnome-devel >= 1.14.2
 %description devel
 This is the package containing the header files for GOffice.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag丑wkowe GOffice.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nag艂贸wkowe GOffice.
 
 %package static
 Summary:	Static GOffice library
-Summary(pl):	Statyczna biblioteka GOffice
+Summary(pl.UTF-8):   Statyczna biblioteka GOffice
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static GOffice library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka GOffice.
 
 %prep
