@@ -1,6 +1,6 @@
 %define		orgname	goffice
 Summary:	Glib/Gtk+ set of document centric objects and utilities
-Summary(pl.UTF-8):   Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
+Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
 Version:	0.3.1
 Release:	1
@@ -35,7 +35,7 @@ Glib/Gtk+.
 
 %package devel
 Summary:	Header files for GOffice library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki GOffice
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libgsf-gnome-devel >= 1.14.2
@@ -48,7 +48,7 @@ Ten pakiet zawiera pliki nagłówkowe GOffice.
 
 %package static
 Summary:	Static GOffice library
-Summary(pl.UTF-8):   Statyczna biblioteka GOffice
+Summary(pl.UTF-8):	Statyczna biblioteka GOffice
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
