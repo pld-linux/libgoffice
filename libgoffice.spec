@@ -22,6 +22,7 @@ BuildRequires:	libgnomeui-devel >= 2.15.2
 BuildRequires:	libgsf-gnome-devel >= 1.14.6
 BuildRequires:	libtool 
 BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	pango-devel >= 1.18.1
 BuildRequires:	pcre-devel
 BuildRequires:	pcretest
 BuildRequires:	pkgconfig
