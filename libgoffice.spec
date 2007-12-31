@@ -1,33 +1,34 @@
-# $Revision: 1.24 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.25 $, $Da1te: 2007/09/07 15:28:31 $
 %define		orgname	goffice
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.5.4
+Version:	0.6.1
 Release:	1
-Epoch:		0
 License:	GPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.5/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	e82987ea2ed6422f47dabcf4b1cd3558
-BuildRequires:	GConf2-devel >= 2.14.0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.6/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	faa72fc615f34b4da8c72d06420f5260
+BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.2.4
-BuildRequires:	gtk+2 >= 2:2.10.6
-BuildRequires:	gtk-doc
-BuildRequires:	intltool >= 0.35
-BuildRequires:	libart_lgpl >= 2.3.11
-BuildRequires:	libgnomeprint-devel >= 2.12.1
-BuildRequires:	libgnomeui-devel >= 2.15.2
+BuildRequires:	gettext-devel
+BuildRequires:	gnome-common >= 2.20.0
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtk-doc >= 1.4
+BuildRequires:	intltool >= 0.35.0
+BuildRequires:	libart_lgpl-devel >= 2.3.11
+BuildRequires:	libglade2-devel >= 1:2.6.2
+BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libgsf-gnome-devel >= 1.14.6
-BuildRequires:	libtool 
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	pango-devel >= 1:1.18.1
-BuildRequires:	pcre-devel
 BuildRequires:	pcretest
 BuildRequires:	pkgconfig
 Requires:	libgsf-gnome >= 1.14.6
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,7 +43,11 @@ Summary:	Header files for GOffice library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	gtk+2-devel >= 2:2.12.0
+Requires:	libart_lgpl-devel >= 2.3.11
+Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgsf-gnome-devel >= 1.14.6
+Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
 This is the package containing the header files for GOffice.
@@ -62,10 +67,23 @@ Static GOffice library.
 %description static -l pl.UTF-8
 Statyczna biblioteka GOffice.
 
+%package apidocs
+Summary:	GOffice library API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki GOffice
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+GOffice library API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki GOffice.
+
 %prep
 %setup -qn %{orgname}-%{version}
 
 %build
+%{__gtkdocize}
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
@@ -84,6 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 rm -f $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la}
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
 
@@ -98,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{orgname}-%{version}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libgoffice-0.6.so.*.*.*
 %dir %{_libdir}/goffice
 %dir %{_libdir}/goffice/%{version}
 %dir %{_libdir}/goffice/%{version}/plugins
@@ -106,16 +125,20 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/goffice/%{version}/plugins/*/*.so
 %{_libdir}/goffice/%{version}/plugins/*/*.glade
 %{_libdir}/goffice/%{version}/plugins/*/*.xml
-%{_datadir}/%{orgname}
+%{_datadir}/goffice
 %{_pixmapsdir}/goffice
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/libgoffice-0.5
-%{_pkgconfigdir}/*.pc
-%{_gtkdocdir}/%{orgname}
+%attr(755,root,root) %{_libdir}/libgoffice-0.6.so
+%{_libdir}/libgoffice-0.6.la
+%{_includedir}/libgoffice-0.6
+%{_pkgconfigdir}/libgoffice-0.6.pc
+
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgoffice-0.6.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/goffice
