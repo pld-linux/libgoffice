@@ -1,32 +1,36 @@
-# $Revision: 1.25 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.26 $, $Da1te: 2007/09/07 15:28:31 $
+#
+%bcond_without	gnome	#disable all GNOME components
+#
 %define		orgname	goffice
+#
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.6.1
+Version:	0.6.2
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.6/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	faa72fc615f34b4da8c72d06420f5260
+# Source0-md5:	f52d78cffbcfc3c13336fd308ea3926e
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.2.4
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.20.0
+%{?with_gnome:BuildRequires:	gnome-common >= 2.20.0}
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtk-doc >= 1.4
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libart_lgpl-devel >= 2.3.11
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.20.0
-BuildRequires:	libgsf-gnome-devel >= 1.14.6
+%{?with_gnome:BuildRequires:	libgnomeui-devel >= 2.20.0}
+%{?with_gnome:BuildRequires:	libgsf-gnome-devel >= 1.14.6}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pcretest
 BuildRequires:	pkgconfig
-Requires:	libgsf-gnome >= 1.14.6
+%{?with_gnome:Requires:	libgsf-gnome >= 1.14.6}
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -92,7 +96,7 @@ Dokumentacja API biblioteki GOffice.
 %{__automake}
 %configure \
 	--enable-static \
-	--with-gnome \
+	%{?with_gnome:--with-gnome} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
