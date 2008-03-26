@@ -1,6 +1,7 @@
-# $Revision: 1.26 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.27 $, $Da1te: 2007/09/07 15:28:31 $
 #
-%bcond_without	gnome	#disable all GNOME components
+# Conditional build:
+%bcond_without	gnome	# disable all GNOME components
 #
 %define		orgname	goffice
 #
