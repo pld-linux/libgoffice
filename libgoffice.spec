@@ -1,4 +1,4 @@
-# $Revision: 1.28 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.28.2.1 $, $Da1te: 2007/09/07 15:28:31 $
 #
 # Conditional build:
 %bcond_without	gnome	# disable all GNOME components
@@ -8,12 +8,12 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.6.4
+Version:	0.7.0
 Release:	1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.6/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	21a02662eda3812a551bd5bf2d95dbbf
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.7/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	835a7d2d57bc406a44ae11e1be6f04ca
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -122,8 +122,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{orgname}-%{version}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
-%attr(755,root,root) %{_libdir}/libgoffice-0.6.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgoffice-0.6.so.6
+%attr(755,root,root) %{_libdir}/libgoffice-0.8.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgoffice-0.8.so.7
 %dir %{_libdir}/goffice
 %dir %{_libdir}/goffice/%{version}
 %dir %{_libdir}/goffice/%{version}/plugins
@@ -136,14 +136,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgoffice-0.6.so
-%{_libdir}/libgoffice-0.6.la
-%{_includedir}/libgoffice-0.6
-%{_pkgconfigdir}/libgoffice-0.6.pc
+%attr(755,root,root) %{_libdir}/libgoffice-0.8.so
+%{_libdir}/libgoffice-0.8.la
+%{_includedir}/libgoffice-0.8
+%{_pkgconfigdir}/libgoffice-0.8.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libgoffice-0.6.a
+%{_libdir}/libgoffice-0.8.a
 
 %files apidocs
 %defattr(644,root,root,755)
