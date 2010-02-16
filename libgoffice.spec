@@ -1,4 +1,4 @@
-# $Revision: 1.33 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.34 $, $Da1te: 2007/09/07 15:28:31 $
 #
 # Conditional build:
 %bcond_without	gnome	# disable all GNOME components
@@ -109,7 +109,6 @@ rm -rf $RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 rm -f $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la}
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{orgname}-%{version}
 
