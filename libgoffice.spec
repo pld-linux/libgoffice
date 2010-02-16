@@ -1,4 +1,4 @@
-# $Revision: 1.34 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.35 $, $Da1te: 2007/09/07 15:28:31 $
 #
 # Conditional build:
 %bcond_without	gnome	# disable all GNOME components
@@ -29,7 +29,6 @@ BuildRequires:	libglade2-devel >= 1:2.6.2
 %{?with_gnome:BuildRequires:	libgsf-gnome-devel >= 1.14.6}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	pcretest
 BuildRequires:	pkgconfig
 %{?with_gnome:Requires:	libgsf-gnome >= 1.14.6}
 # sr@Latn vs. sr@latin
