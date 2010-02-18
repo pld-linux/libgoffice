@@ -1,4 +1,4 @@
-# $Revision: 1.35 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.36 $, $Da1te: 2007/09/07 15:28:31 $
 #
 # Conditional build:
 %bcond_without	gnome	# disable all GNOME components
@@ -8,12 +8,12 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.6.6
-Release:	2
-License:	GPL v2
+Version:	0.8.0
+Release:	1
+License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.6/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	92e51878b9cd9c2fa954953d708f2c47
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.8/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	afb3fcb152fb37ed433f30d1ed1e86e3
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -106,8 +106,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
+#mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 rm -f $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la}
+#rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{orgname}-%{version}
 
@@ -120,29 +121,29 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{orgname}-%{version}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
-%attr(755,root,root) %{_libdir}/libgoffice-0.6.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgoffice-0.6.so.6
+%attr(755,root,root) %{_libdir}/libgoffice-0.8.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgoffice-0.8.so.8
 %dir %{_libdir}/goffice
 %dir %{_libdir}/goffice/%{version}
 %dir %{_libdir}/goffice/%{version}/plugins
 %dir %{_libdir}/goffice/%{version}/plugins/*
 %attr(755,root,root) %{_libdir}/goffice/%{version}/plugins/*/*.so
-%{_libdir}/goffice/%{version}/plugins/*/*.glade
 %{_libdir}/goffice/%{version}/plugins/*/*.xml
+%{_libdir}/goffice/%{version}/plugins/*/*.ui
 %{_datadir}/goffice
 %{_pixmapsdir}/goffice
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgoffice-0.6.so
-%{_libdir}/libgoffice-0.6.la
-%{_includedir}/libgoffice-0.6
-%{_pkgconfigdir}/libgoffice-0.6.pc
+%attr(755,root,root) %{_libdir}/libgoffice-0.8.so
+%{_libdir}/libgoffice-0.8.la
+%{_includedir}/libgoffice-0.8
+%{_pkgconfigdir}/libgoffice-0.8.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libgoffice-0.6.a
+%{_libdir}/libgoffice-0.8.a
 
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/goffice-0.6
+%{_gtkdocdir}/goffice-0.8
