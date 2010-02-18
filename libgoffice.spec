@@ -1,4 +1,4 @@
-# $Revision: 1.36 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.37 $, $Da1te: 2007/09/07 15:28:31 $
 #
 # Conditional build:
 %bcond_without	gnome	# disable all GNOME components
@@ -14,6 +14,7 @@ License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.8/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	afb3fcb152fb37ed433f30d1ed1e86e3
+URL:		http://www.gtk.org/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -106,9 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 rm -f $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la}
-#rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{orgname}-%{version}
 
