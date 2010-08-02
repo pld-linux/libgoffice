@@ -1,4 +1,4 @@
-# $Revision: 1.44 $, $Da1te: 2007/09/07 15:28:31 $
+# $Revision: 1.45 $, $Da1te: 2007/09/07 15:28:31 $
 #
 # Conditional build:
 %bcond_without	gnome	# disable all GNOME components
@@ -8,12 +8,12 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.8.7
+Version:	0.8.8
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.8/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	24507717826ee3c3d28d5d3a9257afcd
+# Source0-md5:	1a2e6feb76b30de48a0e0e75687dc34c
 URL:		http://www.gtk.org/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
