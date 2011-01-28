@@ -1,4 +1,3 @@
-# $Revision: 1.49 $, $Da1te: 2007/09/07 15:28:31 $
 #
 # Conditional build:
 %bcond_without	gnome	# disable all GNOME components
