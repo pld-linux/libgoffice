@@ -8,7 +8,7 @@ Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
 Version:	0.8.13
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.8/%{orgname}-%{version}.tar.bz2
@@ -106,7 +106,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la} \
+	$RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{orgname}-%{version}
 
@@ -134,7 +135,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgoffice-0.8.so
-%{_libdir}/libgoffice-0.8.la
 %{_includedir}/libgoffice-0.8
 %{_pkgconfigdir}/libgoffice-0.8.pc
 
