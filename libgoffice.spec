@@ -5,7 +5,7 @@ Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
 Version:	0.9.90
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.9/%{orgname}-%{version}.tar.xz
@@ -96,14 +96,13 @@ Dokumentacja API biblioteki GOffice.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/goffice/%{api_version}/plugins
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la} \
 	$RPM_BUILD_ROOT%{_libdir}/*.la
-
-ln -s %{_libdir}/goffice/%{version} $RPM_BUILD_ROOT%{_libdir}/goffice/%{api_version}
 
 %find_lang %{orgname}-%{version}
 
@@ -119,8 +118,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libgoffice-%{api_version}.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgoffice-%{api_version}.so.9
 %dir %{_libdir}/goffice
+%dir %{_libdir}/goffice/%{api_version}
+%dir %{_libdir}/goffice/%{api_version}/plugins
 %dir %{_libdir}/goffice/%{version}
-%{_libdir}/goffice/%{api_version}
 %dir %{_libdir}/goffice/%{version}/plugins
 %dir %{_libdir}/goffice/%{version}/plugins/*
 %attr(755,root,root) %{_libdir}/goffice/%{version}/plugins/*/*.so
