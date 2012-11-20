@@ -1,36 +1,31 @@
-#
-# Conditional build:
-%bcond_without	gnome	# disable all GNOME components
-#
 %define		orgname	goffice
 #
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.8.17
+Version:	0.9.90
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.8/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	b4c924457163e02daf8a8d2428f51d10
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.9/%{orgname}-%{version}.tar.xz
+# Source0-md5:	67d26ff3df0f935970e41d086b062205
 URL:		http://www.gtk.org/
-BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
-BuildRequires:	cairo-devel >= 1.2.4
+BuildRequires:	cairo-devel >= 1.10.0
+BuildRequires:	gdk-pixbuf2-devel >= 2.22.0
 BuildRequires:	gettext-devel
-%{?with_gnome:BuildRequires:	gnome-common >= 2.20.0}
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	gobject-introspection-devel >= 1.0.0
+BuildRequires:	gtk+3-devel
 BuildRequires:	gtk-doc >= 1.4
 BuildRequires:	intltool >= 0.35.0
-BuildRequires:	libart_lgpl-devel >= 2.3.11
-BuildRequires:	libglade2-devel >= 1:2.6.2
-%{?with_gnome:BuildRequires:	libgnomeui-devel >= 2.20.0}
-%{?with_gnome:BuildRequires:	libgsf-gnome-devel >= 1.14.6}
+BuildRequires:	libgsf-devel >= 1.14.9
+BuildRequires:	librsvg-devel >= 2.22.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	pango-devel >= 1.24.0
 BuildRequires:	pkgconfig
-%{?with_gnome:Requires:	libgsf-gnome >= 1.14.6}
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,10 +42,7 @@ Summary:	Header files for GOffice library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.12.0
-Requires:	libart_lgpl-devel >= 2.3.11
-Requires:	libglade2-devel >= 1:2.6.2
-Requires:	libgsf-gnome-devel >= 1.14.6
+Requires:	gtk+3-devel
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
@@ -96,7 +88,7 @@ Dokumentacja API biblioteki GOffice.
 %{__automake}
 %configure \
 	--enable-static \
-	%{?with_gnome:--with-gnome} \
+	--enable-introspection=yes \
 	--with-html-dir=%{_gtkdocdir} \
 	--disable-silent-rules
 %{__make}
@@ -121,28 +113,27 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{orgname}-%{version}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
-%attr(755,root,root) %{_libdir}/libgoffice-0.8.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgoffice-0.8.so.8
+%attr(755,root,root) %{_libdir}/libgoffice-0.10.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgoffice-0.10.so.9
 %dir %{_libdir}/goffice
 %dir %{_libdir}/goffice/%{version}
 %dir %{_libdir}/goffice/%{version}/plugins
 %dir %{_libdir}/goffice/%{version}/plugins/*
 %attr(755,root,root) %{_libdir}/goffice/%{version}/plugins/*/*.so
 %{_libdir}/goffice/%{version}/plugins/*/*.xml
-%{_libdir}/goffice/%{version}/plugins/*/*.ui
-%{_datadir}/goffice
-%{_pixmapsdir}/goffice
+%{_libdir}/girepository-1.0/GOffice-0.10.typelib
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgoffice-0.8.so
-%{_includedir}/libgoffice-0.8
-%{_pkgconfigdir}/libgoffice-0.8.pc
+%attr(755,root,root) %{_libdir}/libgoffice-0.10.so
+%{_includedir}/libgoffice-0.10
+%{_pkgconfigdir}/libgoffice-0.10.pc
+%{_datadir}/gir-1.0/GOffice-0.10.gir
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libgoffice-0.8.a
+%{_libdir}/libgoffice-0.10.a
 
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/goffice-0.8
+%{_gtkdocdir}/goffice-0.10
