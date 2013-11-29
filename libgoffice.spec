@@ -1,15 +1,19 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+#
 %define		orgname	goffice
 %define		api_version	0.10
 #
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.10.4
+Version:	0.10.9
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
-# Source0-md5:	93f06f8ee70d2601b158762b0a543927
+# Source0-md5:	98e540dc4273eca088d31005fcf397d9
 URL:		http://www.gtk.org/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -88,10 +92,10 @@ Dokumentacja API biblioteki GOffice.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-static \
-	--enable-introspection=yes \
-	--with-html-dir=%{_gtkdocdir} \
-	--disable-silent-rules
+	--enable-introspection \
+	--disable-silent-rules \
+	%{?with_static_libs:--enable-static} \
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -134,9 +138,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libgoffice-%{api_version}.pc
 %{_datadir}/gir-1.0/GOffice-%{api_version}.gir
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgoffice-%{api_version}.a
+%endif
 
 %files apidocs
 %defattr(644,root,root,755)
