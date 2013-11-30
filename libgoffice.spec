@@ -20,17 +20,32 @@ BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	gdk-pixbuf2-devel >= 2.22.0
 BuildRequires:	gettext-devel
+BuildRequires:	ghostscript-devel >= 9.06
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gobject-introspection-devel >= 1.0.0
-BuildRequires:	gtk+3-devel
-BuildRequires:	gtk-doc >= 1.4
+BuildRequires:	gtk+3-devel >= 3.2.0
+BuildRequires:	gtk-doc >= 1.12
 BuildRequires:	intltool >= 0.35.0
-BuildRequires:	libgsf-devel >= 1.14.9
+BuildRequires:	lasem-devel >= 0.4.1
+BuildRequires:	libgsf-devel >= 1.14.23
 BuildRequires:	librsvg-devel >= 2.22.0
-BuildRequires:	libtool
+BuildRequires:	libspectre-devel >= 0.2.6
+BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	pango-devel >= 1.24.0
+BuildRequires:	pango-devel >= 1:1.24.0
 BuildRequires:	pkgconfig
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXrender-devel
+Requires:	cairo >= 1.10.0
+Requires:	gdk-pixbuf2 >= 2.22.0
+Requires:	glib2 >= 1:2.28.0
+Requires:	gtk+3 >= 3.2.0
+Requires:	lasem >= 0.4.1
+Requires:	libgsf >= 1.14.23
+Requires:	librsvg >= 2.22.0
+Requires:	libspectre >= 0.2.6
+Requires:	libxml2 >= 1:2.6.26
+Requires:	pango >= 1:1.24.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,8 +62,14 @@ Summary:	Header files for GOffice library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtk+3-devel
+Requires:	cairo-devel >= 1.10.0
+Requires:	glib2-devel >= 1:2.28.0
+Requires:	gtk+3-devel >= 3.2.0
+Requires:	lasem-devel >= 0.4.1
+Requires:	libgsf-devel >= 1.14.23
+Requires:	libspectre-devel >= 0.2.6
 Requires:	libxml2-devel >= 1:2.6.26
+Requires:	pango-devel >= 1:1.24.0
 
 %description devel
 This is the package containing the header files for GOffice.
