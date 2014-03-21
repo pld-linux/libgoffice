@@ -8,12 +8,12 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.10.11
+Version:	0.10.13
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
-# Source0-md5:	855d536b0b61004b3ffada6b62440588
+# Source0-md5:	edd8cef95ebe9764ff4318e16f7d0a92
 URL:		http://www.gtk.org/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -32,6 +32,7 @@ BuildRequires:	librsvg-devel >= 2.22.0
 BuildRequires:	libspectre-devel >= 0.2.6
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	libxslt-devel
 BuildRequires:	pango-devel >= 1:1.24.0
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libXext-devel
@@ -69,6 +70,7 @@ Requires:	lasem-devel >= 0.4.1
 Requires:	libgsf-devel >= 1.14.23
 Requires:	libspectre-devel >= 0.2.6
 Requires:	libxml2-devel >= 1:2.6.26
+Requires:	libxslt-devel
 Requires:	pango-devel >= 1:1.24.0
 
 %description devel
@@ -142,6 +144,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_libdir}/libgoffice-%{api_version}.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgoffice-%{api_version}.so.10
+%{_libdir}/girepository-1.0/GOffice-%{api_version}.typelib
 %dir %{_libdir}/goffice
 %dir %{_libdir}/goffice/%{api_version}
 %dir %{_libdir}/goffice/%{api_version}/plugins
@@ -150,7 +153,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/goffice/%{version}/plugins/*
 %attr(755,root,root) %{_libdir}/goffice/%{version}/plugins/*/*.so
 %{_libdir}/goffice/%{version}/plugins/*/*.xml
-%{_libdir}/girepository-1.0/GOffice-%{api_version}.typelib
+%{_datadir}/goffice
 
 %files devel
 %defattr(644,root,root,755)
