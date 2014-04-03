@@ -4,12 +4,11 @@
 #
 %define		orgname	goffice
 %define		api_version	0.10
-#
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
 Version:	0.10.13
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
@@ -96,6 +95,9 @@ Summary:	GOffice library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki GOffice
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 GOffice library API documentation.
