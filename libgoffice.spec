@@ -7,26 +7,26 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.10.17
+Version:	0.10.18
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
-# Source0-md5:	fd5635aeb808ebebaf87124440a9fbdb
+# Source0-md5:	a08dfc7c6dc8b9b2ae7968bbcb9224b6
 URL:		http://www.gtk.org/
 BuildRequires:	autoconf >= 2.54
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.7.2
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	gdk-pixbuf2-devel >= 2.22.0
 BuildRequires:	gettext-devel
 BuildRequires:	ghostscript-devel >= 9.06
-BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gobject-introspection-devel >= 1.0.0
-BuildRequires:	gtk+3-devel >= 3.2.0
+BuildRequires:	gtk+3-devel >= 3.8.7
 BuildRequires:	gtk-doc >= 1.12
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	lasem-devel >= 0.4.1
-BuildRequires:	libgsf-devel >= 1.14.23
+BuildRequires:	libgsf-devel >= 1.14.24
 BuildRequires:	librsvg-devel >= 2.22.0
 BuildRequires:	libspectre-devel >= 0.2.6
 BuildRequires:	libtool >= 2:2.2.6
@@ -38,10 +38,10 @@ BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXrender-devel
 Requires:	cairo >= 1.10.0
 Requires:	gdk-pixbuf2 >= 2.22.0
-Requires:	glib2 >= 1:2.28.0
-Requires:	gtk+3 >= 3.2.0
+Requires:	glib2 >= 1:2.38.0
+Requires:	gtk+3 >= 3.8.7
 Requires:	lasem >= 0.4.1
-Requires:	libgsf >= 1.14.23
+Requires:	libgsf >= 1.14.24
 Requires:	librsvg >= 2.22.0
 Requires:	libspectre >= 0.2.6
 Requires:	libxml2 >= 1:2.6.26
@@ -63,10 +63,10 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cairo-devel >= 1.10.0
-Requires:	glib2-devel >= 1:2.28.0
-Requires:	gtk+3-devel >= 3.2.0
+Requires:	glib2-devel >= 1:2.38.0
+Requires:	gtk+3-devel >= 3.8.7
 Requires:	lasem-devel >= 0.4.1
-Requires:	libgsf-devel >= 1.14.23
+Requires:	libgsf-devel >= 1.14.24
 Requires:	libspectre-devel >= 0.2.6
 Requires:	libxml2-devel >= 1:2.6.26
 Requires:	libxslt-devel
