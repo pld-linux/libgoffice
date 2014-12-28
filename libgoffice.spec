@@ -18,7 +18,7 @@ BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7.2
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	gdk-pixbuf2-devel >= 2.22.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	ghostscript-devel >= 9.06
 BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gobject-introspection-devel >= 1.0.0
