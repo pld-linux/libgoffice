@@ -7,20 +7,20 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.10.44
+Version:	0.10.45
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
-# Source0-md5:	219cc7a31a118a8e6c2d2262ec1fd974
-URL:		http://www.gtk.org/
+# Source0-md5:	93c70ae02724ccc4155dc7d5c38cb4d4
+URL:		https://developer.gnome.org/goffice/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7.2
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	gdk-pixbuf2-devel >= 2.22.0
 BuildRequires:	gettext-tools
 BuildRequires:	ghostscript-devel >= 9.06
-BuildRequires:	glib2-devel >= 1:2.38.0
+BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gobject-introspection-devel >= 1.0.0
 BuildRequires:	gtk+3-devel >= 3.8.7
 BuildRequires:	gtk-doc >= 1.12
@@ -41,7 +41,7 @@ BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXrender-devel
 Requires:	cairo >= 1.10.0
 Requires:	gdk-pixbuf2 >= 2.22.0
-Requires:	glib2 >= 1:2.38.0
+Requires:	glib2 >= 1:2.40.0
 Requires:	gtk+3 >= 3.8.7
 Requires:	lasem >= 0.4.1
 Requires:	libgsf >= 1.14.24
@@ -66,7 +66,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GOffice
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cairo-devel >= 1.10.0
-Requires:	glib2-devel >= 1:2.38.0
+Requires:	glib2-devel >= 1:2.40.0
 Requires:	gtk+3-devel >= 3.8.7
 Requires:	lasem-devel >= 0.4.1
 Requires:	libgsf-devel >= 1.14.24
@@ -133,8 +133,11 @@ install -d $RPM_BUILD_ROOT%{_libdir}/goffice/%{api_version}/plugins
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.{a,la} \
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.la \
 	$RPM_BUILD_ROOT%{_libdir}/*.la
+%if %{with static_libs}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/goffice/%{version}/plugins/*/*.a
+%endif
 
 %find_lang %{orgname}-%{version}
 
