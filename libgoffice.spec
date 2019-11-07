@@ -7,12 +7,12 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.10.45
+Version:	0.10.46
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
-# Source0-md5:	93c70ae02724ccc4155dc7d5c38cb4d4
+# Source0-md5:	ff049170664a6b0dd904f843ee7eb6e9
 URL:		https://developer.gnome.org/goffice/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7.2
