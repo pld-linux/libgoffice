@@ -7,12 +7,12 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.10.46
+Version:	0.10.47
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
-# Source0-md5:	ff049170664a6b0dd904f843ee7eb6e9
+# Source0-md5:	01d54519e7357d6f756f32c31754dfa4
 URL:		https://developer.gnome.org/goffice/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7.2
@@ -49,8 +49,6 @@ Requires:	librsvg >= 2.22.0
 Requires:	libspectre >= 0.2.6
 Requires:	libxml2 >= 1:2.6.26
 Requires:	pango >= 1:1.24.0
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -98,7 +96,7 @@ Summary:	GOffice library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki GOffice
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
