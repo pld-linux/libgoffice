@@ -96,9 +96,7 @@ Summary:	GOffice library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki GOffice
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 GOffice library API documentation.
