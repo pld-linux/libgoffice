@@ -7,12 +7,12 @@
 Summary:	Glib/Gtk+ set of document centric objects and utilities
 Summary(pl.UTF-8):	Zestaw zorientowanych dokumentowo obiektów i narzędzi Glib/Gtk+
 Name:		libgoffice
-Version:	0.10.48
+Version:	0.10.49
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
-# Source0-md5:	34c5dcc651ce7003921170f6fa0696bd
+Source0:	https://download.gnome.org/sources/goffice/0.10/%{orgname}-%{version}.tar.xz
+# Source0-md5:	52ae9755ac55ada6843d678f2bc2470c
 URL:		https://developer.gnome.org/goffice/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7.2
@@ -37,6 +37,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	pkgconfig(cairo-pdf) >= 1.10.0
 BuildRequires:	pkgconfig(cairo-ps) >= 1.10.0
 BuildRequires:	pkgconfig(cairo-svg) >= 1.10.0
+BuildRequires:	rpm-build >= 4.6
+BuildRequires:	rpmbuild(macros) >= 1.198
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXrender-devel
 Requires:	cairo >= 1.10.0
